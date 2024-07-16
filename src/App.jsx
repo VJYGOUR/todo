@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { db } from "./appwrite/database";
-import CreateNote from "./CreateNote";
-import Button from "./Button";
-import Header from "./Header";
+
+import Header from "./components/Header";
+import Main from "./components/Main";
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -17,6 +17,7 @@ function App() {
   return (
     <div>
       <Header />
+      <Main notes={notes} setNotes={setNotes} />
     </div>
   );
 }
