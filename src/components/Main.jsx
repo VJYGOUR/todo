@@ -48,7 +48,7 @@ function Main({ setNotes, notes }) {
               className="flex border-b-[2px] px-4 py-2 bg-white justify-between"
             >
               <main className=" ">{note.body}</main>
-              <Button noteId={note.$id} setNotes={setNotesgit} />
+              <Button noteId={note.$id} setNotes={setNotes} />
             </div>
           );
         })}
