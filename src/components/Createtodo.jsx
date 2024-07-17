@@ -3,6 +3,7 @@ import { db } from "../appwrite/database";
 function Createtodo({ setNotes }) {
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (e.target.body.value == "") return;
     const userData = e.target.body.value;
     const payload = { body: userData };
     const createData = async () => {
@@ -21,10 +22,9 @@ function Createtodo({ setNotes }) {
           placeholder="create a new todo"
           className="w-full h-full"
         />
-        <button
-          type="submit"
-          className="inline-block border order-[-1] rounded-full w-12 border-[#9495A5]"
-        ></button>
+        <button type="submit" className="order-[-1] ">
+          <img src={require("../images/Oval.png")} alt="oval" />
+        </button>
       </form>
     </div>
   );

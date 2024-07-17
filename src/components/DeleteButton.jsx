@@ -1,6 +1,6 @@
 import { db } from "../appwrite/database";
 
-function Button({ noteId, setNotes }) {
+function DeleteButton({ noteId, setNotes }) {
   const handleDelete = () => {
     const deleteData = async () => {
       await db.notes.delete(noteId);
@@ -21,4 +21,4 @@ function Button({ noteId, setNotes }) {
   );
 }
 
-export default Button;
+export default DeleteButton;

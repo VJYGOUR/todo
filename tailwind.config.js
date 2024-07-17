@@ -4,6 +4,10 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
+      listStyleImage: {
+        checkmark: 'url("./images/Oval.png")',
+        done: 'url("./images/Ovaldone.png")',
+      },
       backgroundImage: {
         deskDark: "url(./images/bg-desktop-dark.jpg)",
         deskLight: "url(./images/bg-desktop-light.jpg)",

@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import Createtodo from "./Createtodo";
 import { db } from "../appwrite/database";
-import Button from "./Button";
 
+import ListItems from "./ListItems";
 function Main({ setNotes, notes }) {
+  // code for dark/light theme
   const [theme, setTheme] = useState("light");
   useEffect(() => {
     if (theme === "dark") {
@@ -15,12 +16,14 @@ function Main({ setNotes, notes }) {
   const handleMode = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
+  // dark/light theme____________________________________________________
   return (
     <>
-      <div className="w-[90%] absolute top-12 left-[50%] translate-x-[-50%] ">
+      <div className="w-[90%] absolute top-12 left-[50%] translate-x-[-50%]  sm:w-[40%]">
         <section className="  flex justify-between">
           <h1 className="text-white text-4xl ">TODO</h1>
           <button onClick={handleMode} className="">
+            {/* for dark/light theme icon changing code */}
             {theme === "dark" ? (
               <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26">
                 <path
@@ -38,20 +41,27 @@ function Main({ setNotes, notes }) {
                 />
               </svg>
             )}
+            {/* for dark light them icon changing code */}
           </button>
         </section>
         <Createtodo setNotes={setNotes} />
-        {notes.map((note, i) => {
-          return (
-            <div
-              key={i}
-              className="flex border-b-[2px] px-4 py-2 bg-white justify-between"
-            >
-              <main className=" ">{note.body}</main>
-              <Button noteId={note.$id} setNotes={setNotes} />
-            </div>
-          );
-        })}
+
+        {/* All createdList of items by user  */}
+        <section className="bg-white mt-10 pl-8">
+          {notes.map((note, i) => {
+            return (
+              <>
+                <ListItems
+                  key={i}
+                  note={note}
+                  i={i}
+                  noteId={note.$id}
+                  setNotes={setNotes}
+                />
+              </>
+            );
+          })}
+        </section>
       </div>
     </>
   );
